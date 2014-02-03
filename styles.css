@@ -1,0 +1,642 @@
+body, html {
+	margin: 0px;
+	font-family: Helvetica Neue;
+	height: 100%;
+	color: #ffffff;
+}
+
+#messaging-outer-container {
+	display: -webkit-flex;
+	-webkit-flex-align: center;
+	height: 100%;
+}
+
+#messaging-inner-container {
+	margin: auto;
+	width: 100%;
+}
+
+#messaging {
+	background-color: rgba(0,0,0,0.25);
+	color: #ffffff;
+	text-align: center;
+	line-height: 130%;
+	text-shadow: 0px 1px rgba(0,0,0,0.55);
+}
+
+#spinner-container {
+	display: -webkit-flex;
+	-webkit-flex-align: center;
+	width: 100%;
+}
+
+#spinner {
+	margin: auto;
+}
+
+#button-container {
+	width: 100%;
+	text-align: center;
+}
+
+/* Hide these buttons initially since they are made visible by the values in Config.js.
+   This is so changes can be made in one place. */
+#subscribe-button, #print-subscriber-button, #itunes-button, #store-button {
+	display: none;
+}
+
+.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 3px solid #0081FF;
+	display: inline-block;
+	position: relative;
+	top: 1px;
+}
+
+.arrow-right-large {
+	width: 0; 
+	height: 0; 
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 5px solid #ffffff;
+	display: inline-block;
+	position: relative;
+	top: 1px;
+}
+
+.button {
+	background-color: rgba(255,255,255,0.75);
+	width: auto;
+	font-size: 16px;
+	text-shadow: 0px 1px rgba(255,255,255,1.05);
+	color: #0081FF;
+	text-align: center;
+	border-radius: 6px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.button:active {
+	background-color: rgba(255,255,255,0.85);
+}
+
+#view-issue-button, #go-to-library-button {
+	margin-top: 25px
+	text-shadow: 0px 1px rgba(0,0,0,0.55);
+	color: #ffffff;
+}
+
+#view-issue-button:active, #go-to-library-button:active {
+	opacity: .75;
+}
+
+#progress-bar {
+	background-color: #0081FF;
+	height: 4px;
+	width: 0px;
+}
+
+/* iphone is portrait only. */
+/* iphone, portrait */
+@media screen and (device-aspect-ratio: 2/3) {
+	body {
+		background: url("images/iphone_portrait.jpg");
+		background-size: 320px 460px;
+	}
+
+	#outer-container{
+		height: 100%;
+		position: relative;
+	}
+}
+
+/* retina, iphone, portrait, 3.5inch (iphone 4) */
+@media only screen and (-webkit-min-device-pixel-ratio : 2) and (device-aspect-ratio: 2/3) {
+	body {
+		background: url("images/iphone_portrait_retina_3.5inch.jpg");
+		background-size: 320px 460px;
+	}
+
+	#outer-container{
+		height: 100%;
+		position: relative;
+	}
+}
+
+/* retina, iphone, portrait, 4inch (iphone 5 and up) */
+@media only screen and (-webkit-min-device-pixel-ratio : 2) and (device-aspect-ratio: 40/71) {
+	body {
+		background: url("images/iphone_portrait_retina_4inch.jpg");
+		background-size: 320px 548px;
+	}
+
+	#outer-container{
+		height: 100%;
+		position: relative;
+	}
+}
+
+/** min-width and max-width are used to detect orientation otherwise orientation changes are triggered when the keyboard slides up. **/
+/* ipad, landscape */
+@media only screen and (device-width : 768px) and (min-width: 1024px)  {
+	body {
+		background: url("images/ipad_landscape.jpg");
+		background-size: 1024px 748px;
+	}
+
+	/* Need to set an explicit height so the contents don't shift when the keyboard slides up. */
+	#outer-container, .modal-background-grey {
+		height: 748px;
+		position: relative;
+	}
+}
+
+/* ipad, portrait */
+@media only screen and (device-width : 768px) and (max-width: 768px)  {
+	body {
+		background: url("images/ipad_portrait.jpg");
+		background-size: 768px 1004px;
+	}
+
+	/* Need to set an explicit height so the contents don't shift when the keyboard slides up. */
+	#outer-container, .modal-background-grey {
+		height: 1004px;
+		position: relative;
+	}
+}
+
+/* retina, ipad, landscape */
+@media only screen and (-webkit-min-device-pixel-ratio : 2) and (device-width : 768px) and (min-width: 1024px)  {
+	body {
+		background: url("images/ipad_landscape_retina.jpg");
+		background-size: 1024px 748px;
+	}
+
+	/* Need to set an explicit height so the contents don't shift when the keyboard slides up. */
+	#outer-container, .modal-background-grey {
+		height: 748px;
+		position: relative;
+	}
+}
+
+/* retina, ipad, portrait */
+@media only screen and (-webkit-min-device-pixel-ratio : 2) and (device-width : 768px) and (max-width: 768px)  {
+	body {
+		background: url("images/ipad_portrait_retina.jpg");
+		background-size: 768px 1004px;
+		color: #ffffff;
+	}
+
+	/* Need to set an explicit height so the contents don't shift when the keyboard slides up. */
+	#outer-container, .modal-background-grey {
+		height: 1004px;
+		position: relative;
+	}
+}
+
+/* iphone */
+@media only screen and (device-width : 320px) {
+	#messaging-inner-container {
+		position: relative;
+		top: -20px;
+	}
+
+	#messaging {
+		padding: 10px 15px;
+		font-size: 17px;
+	}
+
+	#button-container {
+		position: absolute;
+		bottom: 10px;
+	}
+
+	.button {
+		padding: 10px;
+		width: 200px;
+		margin-top: 10px;
+	}
+
+	.modal-background {
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .3);
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		z-index: 9;
+		-webkit-transition: opacity .2s;
+		opacity: 0;
+	}
+
+	.button-sheet {
+		background-color: rgba(0,0,0,.5);
+		width:300px;
+		padding: 5px 10px 5px 10px;
+		z-index: 10;
+		position: absolute;
+		-webkit-transition: -webkit-transform .3s;
+		-webkit-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+	}
+
+	.button-sheet .title {
+		font-size: 14px;
+		color: #ffffff;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+
+	.button-sheet-button {
+		background-color: #ffffff;
+		height:28px;
+		text-align: center;
+		font-size: 16px;
+		padding-top: 10px;
+	    margin-bottom: 1px;
+	}
+
+	.button-sheet-button:nth-last-child(2) {
+	    border-bottom-left-radius: 4px;
+	    border-bottom-right-radius: 4px;
+	    margin-bottom: 10px;
+	}
+
+	.button-sheet-button:nth-of-type(2) {
+	    border-top-left-radius: 4px;
+	    border-top-right-radius: 4px;
+	}
+
+	.button-sheet-grey-button:active {
+	    background-image:-webkit-linear-gradient(-90deg,rgb(188,190,193) 0%,rgb(185,187,189) 46%,rgb(207,208,210) 48%,rgb(238,239,239) 100%);
+	}
+
+	.button-sheet-cancel-button {
+		font-weight: bold;
+	    margin-bottom: 10px;
+	    border-radius: 4px;
+	}
+
+	/* The slideup login view. */
+	.login {
+		width: 320px;
+		position: absolute;
+		-webkit-transition: -webkit-transform .5s;
+		-webkit-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+		background-color: #F4F4F4;
+	}
+
+	.login #submit {
+	    font-size: 16px;
+	}
+
+	.login #forgot-password, .login #create-account {
+	    margin-left: 15px;
+	    margin-bottom: 10px;
+	}
+
+	.login .header {
+	    border-bottom-style: none;
+		position: static;
+		width: 320px;
+		height: 40px;
+		background-color: #f8f8f8;
+		z-index: 9;
+		padding: 5px 0px 0px 0px;
+	    border-bottom: 1px solid #D3D3D3;
+	}
+
+	#login-done-button {
+	    position: absolute;
+	    right: 15px;
+	    top: 14px;
+	}
+
+	#title {
+	    text-align: center;
+	    font-size: 16px;
+	    width: 250px;
+	    display: block;
+	    color: #000000;
+	    position: absolute;
+	    left: 35px;
+	    top: 12px;
+	}
+
+	.login form {
+		padding: 10px 15px 0px 15px;
+	}
+
+	input[type="text"], input[type="email"], input[type="password"] {
+		-webkit-appearance: none;
+		background-color: white;
+		border: 1px solid #BBBBBB;
+		color: black;
+		font-size: 14px;
+		outline-color: black;
+		outline-style: none;
+		outline-width: 0px;
+		padding: 0px 4px 4px 4px;
+		width: 100%;
+		height: 30px;
+		-webkit-appearance: none;
+		margin: 0px 0px 10px 0px;
+		font-family: Helvetica Neue;
+	    border-radius: 0px;
+	}
+
+	.login .error {
+		color: rgb(255,0,0);
+		font-size: 13px;
+		position: relative;
+		margin-top: 10px;
+		padding-left: 3px;
+		height: 20px;
+	}
+
+	.login .link {
+	    margin: 10px 0px 15px 13px;
+	    color: #525252;
+	    text-decoration: none;
+	    font-size: 13px;
+	    font-weight: bold;
+	    position: relative;
+	    top: -5px;
+	    display: inline-block;
+	    -webkit-user-select: none;
+	    clear: left;
+	}
+
+	.login .link:active {
+	    background-color: #bbbbbb;
+	}
+
+	.form-button {
+		background-color:rgb(255,255,255);
+		width:301px;
+		height:28px;
+		border-color:rgb(159,159,159);
+		border-width:1px;
+		border-radius:3%/30%;
+		border-style:solid;
+		text-align: center;
+		font-weight: bold;
+		font-size: 16;
+		color: #000000;
+		padding-top: 10px;
+		margin-top: 10px;
+		-webkit-user-select: none;
+	}
+
+	.form-button:active {
+	    background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(5,140,245)),color-stop(1, rgb(1,95,230)));
+	    color: #ffffff;
+	}
+
+	.text-link {
+	    -webkit-user-select: none;
+	    cursor: default;
+	    font-size: 14px;
+	    color: #0081FF;
+	}
+
+	.text-link:active {
+	    color: rgba(0,129,255, .5);
+	}
+}
+
+@media only screen and (device-width : 768px) {
+	#messaging {
+		padding: 20px 30px;
+		font-size: 25px;
+	}
+
+	#button-container {
+		position: absolute;
+		bottom: 20px;
+	}
+
+	.button {
+		padding: 12px;
+		width: 250px;
+		margin-top: 15px;
+	}
+
+	.modal-background-grey {
+	    width: 100%;
+	    background: rgba(0, 0, 0, .3);
+	    position: fixed;
+	    top: 0px;
+	    left: 0px;
+	    z-index: 9;
+		display: -webkit-flex;
+		-webkit-flex-align: center;
+	}
+
+	/* Styles for the dialogs. */
+	.dialog {
+	    margin: auto;
+	    width: 240px;
+	    padding: 10px 10px 10px 10px;
+	    z-index: 10;
+	    background: rgba(255, 255, 255, .92);
+	    color: #FFFFFF;
+	    text-align: center;
+	    -webkit-border-radius: 5px;
+	    opacity: .92;
+	}
+
+	.dialog #title {
+	    margin: 0;
+	    margin-bottom: 10px;
+	    font-size: 16px;
+	    text-align:left;
+	    font-weight: bold;
+	    text-align: center;
+	    width: 330px;
+	}
+
+	.dialog #description {
+	    font-size: 13px;
+	    margin: 0px 0px 20px;
+	    text-align:left;
+	    text-align: center;
+	    line-height: 120%;
+	    color: #000000;
+	}
+
+	.dialog button {
+	    color:#157EFB;
+	    height: 35px;
+	    font-style: bold;
+	    white-space: nowrap;
+	    text-align: center;
+	    font: bold 16px;
+	}
+
+	.dialog button:active {
+	    color: rgba(21,126,251, .5);
+	}
+
+	#subscribe-dialog {
+	    width: 330px;
+	    margin: auto;
+	    padding: 0px;
+	}
+
+	#subscribe-dialog #description {
+	    padding: 15px;
+	    margin-bottom: 10px;    
+	}
+
+	#subscribe-dialog .subscribe-button {
+	    border-top: 1px solid #9BA0A3;
+	    color:#157EFB;
+	    font-size:16px;
+	    display:block;
+	    padding: 12px;
+	}
+
+	#subscribe-dialog .subscribe-button:active {
+	    color: rgba(21,126,251, .5);
+	}
+
+	#subscribe-dialog .subscribe-dialog-button {
+	    color:#157EFB;
+	    font: bold 16px;
+	    border-top: 1px solid #9BA0A3;
+	    padding: 12px;
+	}
+
+	#subscribe-dialog .subscribe-dialog-button:active {
+	    color: rgba(21,126,251, .5);
+	}
+
+	/* The login dialog. */
+	#login {
+	    width: 410px;
+	    margin: auto;
+	    background-color: rgba(255, 255, 255, .92);
+	    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
+	    color: #ffffff;
+	    -webkit-border-radius: 5px;
+	    opacity: .92;
+	    position: relative;
+	}
+
+	#login .title {
+	    font-size: 24px;
+	    text-align: center;
+	    margin-bottom: 10px;
+	    height: 37px;
+	    padding-top: 20px;
+	    color: #000000;
+	    letter-spacing: 1px;
+	}
+
+	#login .description {
+	    font-size: 15px;
+	    margin: 15px 0px 20px 20px;
+	    color: #999999;
+	}
+
+	#login .link {
+	    margin: 5px 0px 20px 20px;
+	    color: #0081FF;
+	    text-decoration: none;
+	    font-size: 15px;
+	}
+
+	#login #close {
+	    position: absolute;
+	    width: 50px;
+	    height: 50px;
+	    top: 10px;
+	    right: 15px;
+	    font-size: 16px;
+	    color: #0081FF;
+	    letter-spacing: 0px;
+	}
+
+	#login .link:active, #login #close:active, #login #submit:active {
+	    color: rgba(0,129,255, .6);
+	}
+
+	input[type="text"], input[type="email"], input[type="password"] {
+	    -webkit-appearance: none;
+	    background-color: rgba(255,255,255,0);
+	    border-color: #BBBBBB;
+	    border-style: solid;
+	    border-width: 1px;
+	    color: #000000;
+	    font-size: 12px;
+	    outline-color: black;
+	    outline-style: none;
+	    outline-width: 0px;
+	    padding: 0px 4px 4px 4px;
+	    margin-left: 20px;
+	    width: 370px;
+	    height: 31px;
+	    -webkit-appearance: none;
+	    margin: 0px 0px 15px 20px;
+	    border-radius: 0px;
+	}
+
+	input::-webkit-input-placeholder {
+	    font-size: 12px;
+	    font-family: Helvetica Neue;
+	    color: #bbbbbb;
+	}
+
+	#login .required {
+	    position: relative;
+	    top: -5px;
+	    left: 3px;
+	}
+
+	#login #submit {
+	    margin-left: 20px;
+	    font-size: 20px;
+	    color: #0081FF;
+	}
+
+	#login #submit:active {
+	    background-position: 0px -36px;
+	}
+
+	#login .error {
+	    color: #ff0000;
+	    font-size: 15px;
+	    margin: 10px 10px 10px 20px;
+	    height: 15px;
+	}
+
+	.form-button {
+	    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+	    width:123px;
+	    height:30px;
+	    border-color:rgb(51,51,51);
+	    border-width:1px;
+	    border-radius:4%/12%;
+	    border-style:solid;
+	    text-align: center;
+	    color: #ffffff;
+	    font-weight: bold;
+	    padding-top: 9px;
+	}
+}
+
+
+
+/* The styles for the debug textarea. This is commented out in appview. */
+.debug {
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    opacity: .5;
+}

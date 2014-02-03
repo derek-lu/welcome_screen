@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0">
+<title></title>
+
+<!--
+	The DPS library/store API.
+-->
+<script src="libs/AdobeLibraryAPI.js"></script>
+
+<!-- jQuery library. -->
+<script src="libs/jquery-2.0.3.min.js"></script>
+
+<!-- Required library of utility functions for backbone. -->
+<script src="libs/underscore-min.js"></script>
+
+<!-- Application framework. -->
+<script src="libs/backbone-min.js"></script>
+
+<!-- API that removes the 300ms click delay on ios. -->
+<script src="libs/fastclick.min.js"></script>
+
+<!-- Indeterminate spinner. -->
+<script src="libs/spin.min.js"></script>
+
+<!-- Config values. -->
+<script src="js/Config.js"></script>
+
+<!-- Control to display a view of buttons on the iphone. -->
+<script src="js/controls/ButtonSheet.js"></script>
+
+<!-- Dialog to display the login on the ipad. -->
+<script src="js/dialogs/LoginDialog.js"></script>
+
+<!-- Form to display the login on the iphone. -->
+<script src="js/dialogs/LoginForm.js"></script>
+
+<!-- Dialog to display the subscribe buttons on the ipad. -->
+<script src="js/dialogs/SubscribeDialog.js"></script>
+
+<!-- The main js file. -->
+<script src="main.js"></script>
+
+<link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+<body ontouchstart="">
+<div id="outer-container">
+	<div id="messaging-outer-container">
+		<div id="messaging-inner-container">
+			<div id="messaging">Standby while we prepare a free preview of the latest issue.</div>
+			<div id="progress-bar"></div>
+			<div id="spinner-container">
+				<div id="spinner"></div>
+			</div>
+		</div>
+	</div>
+	<div id="button-container">
+		<div id="subscribe-button" class="button">I would like to subscribe</div>
+		<div id="print-subscriber-button" class="button">I am a print subscriber</div>
+		<div id="itunes-button" class="button">I am a digital subscriber</div>
+		<div id="store-button" class="button">Go to store <div class="arrow-right"></div></div>
+	</div>
+</div>
+
+	<!--<textarea class='debug'></textarea>-->
+</body>
+</html>
