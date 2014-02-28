@@ -121,8 +121,12 @@ $(document).ready(function() {
 		$("#itunes-button").on("click", itunesButtonClickHandler);
 		$("#store-button").on("click", storeButtonClickHandler);
 
+		var len = folios.length;
+
 		// Figure out if this app was updated rather than a fresh install.
 		// Not foolproof but a guess based on whether or not there is an installed folio.
+		// There also might be an installed folio if the user has opened the app with
+		// the welcome screen but doesn't tap anything then comes back to the app.
 		var isInstallAnUpdate = false;
 		var folioStates = adobeDPS.libraryService.folioStates;
 		for (var i = 0; i < len; i++) {
@@ -146,7 +150,6 @@ $(document).ready(function() {
 
 		} else {
 			var folioToDownload;
-			var len = folios.length;
 
 			// The order of operation to download a folio is to first check for a promotional folio,
 			// if one is not found then check for a folio with article preview, if nothing is found
