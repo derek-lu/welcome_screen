@@ -160,7 +160,6 @@ $(document).ready(function() {
 			for (var i = 0; i < len; i++) {
 				if (folios[i].entitlementType == adobeDPS.receiptService.entitlementTypes.PROMOTIONAL) {
 					folioToDownload = folios[i];
-					isPromotionalFolioFound = true;
 					break;
 				}
 			}
