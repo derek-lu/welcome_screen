@@ -20,7 +20,7 @@ $(document).ready(function() {
 	// Helpful for debugging startup problems since a remote debug session might not be opened in time.
 	window.debug = function(value) {
 		$(".debug").val($(".debug").val() + ($(".debug").val() == "" ? "" : "\n") + value);
-	}
+	};
 
 	// The welcome screen does not display if the user is not online when they first install the app.
 	// However, for updates the welcome screen will display if the user is not online.
@@ -287,7 +287,7 @@ $(document).ready(function() {
 			$("#view-issue-button").on("click", function() {
 				viewFolio(folio);
 			});
-		})
+		});
 
 		// Add a callback to listen for state changes to the folio.
 		// For this case we only want to see when isViewable changes.
