@@ -194,7 +194,6 @@ $(document).ready(function() {
 
 			// The text that is displayed at the top of the button sheet.
 			var title = "Select a digital subscription option below. Your digital subscription will start immediately from the latest issue after you complete the purchase process.";
-			var scope = this;
 			var availableSubscriptions = adobeDPS.receiptService.availableSubscriptions;
 			for (var s in availableSubscriptions) {
 				var availableSubscription = availableSubscriptions[s];
